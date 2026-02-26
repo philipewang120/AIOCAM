@@ -43,19 +43,14 @@
       <div class="col-lg-6">
         <div class="card shadow-sm p-4">
           <h4 class="mb-4">Send Us a Message</h4>
-          <% if (status === "success") { %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    Message sent successfully.
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  </div>
+         <% if (req.query.status === "success") { %>
+  <div class="alert alert-success text-center">Form submitted successfully.</div>
 <% } %>
 
-<% if (status === "error") { %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    Something went wrong. Please try again.
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  </div>
+<% if (req.query.status === "error") { %>
+  <div class="alert alert-danger text-center">Something went wrong. Please try again.</div>
 <% } %>
+
           <form action="/contact" method="POST">
             <div class="mb-3">
               <label class="form-label">Full Name</label>

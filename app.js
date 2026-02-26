@@ -79,15 +79,13 @@ app.post("/contact", async (req, res) => {
     });
 
     
-    req.session.status = "success";
-    res.redirect("/Contact");
+    res.redirect("/Contact?status=success");
 
   } catch (error) {
     console.error(error);
 
     
-    req.session.status = "error";
-    res.redirect("/Contact");
+    res.redirect("/Contact?status=error");
   }
 });
 
@@ -116,13 +114,11 @@ app.post("/volunteer", async (req, res) => {
       text: emailContent
     });
 
-    req.session.status = "success";
-    res.redirect("/Volunteer");
+   res.redirect("/Volunteer?status=success");
 
   } catch (error) {
     console.log(error);
-    req.session.status = "error";
-    res.redirect("/Volunteer");
+    res.redirect("/Volunteer?status=error");
   }
 });
 

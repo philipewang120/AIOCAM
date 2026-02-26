@@ -63,13 +63,13 @@
 
       <h2 class="text-center fw-bold mb-4">Sign Up Form</h2>
 
-      <% if (status === "success") { %>
-        <div class="alert alert-success text-center">Form submitted successfully.</div>
-      <% } %>
+      <% if (req.query.status === "success") { %>
+  <div class="alert alert-success text-center">Form submitted successfully.</div>
+<% } %>
 
-      <% if (status === "error") { %>
-        <div class="alert alert-danger text-center">Something went wrong. Please try again.</div>
-      <% } %>
+<% if (req.query.status === "error") { %>
+  <div class="alert alert-danger text-center">Something went wrong. Please try again.</div>
+<% } %>
 
       <form action="/volunteer" method="POST">
 
