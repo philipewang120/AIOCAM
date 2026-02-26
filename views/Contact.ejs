@@ -43,12 +43,16 @@
       <div class="col-lg-6">
         <div class="card shadow-sm p-4">
           <h4 class="mb-4">Send Us a Message</h4>
-         <% if (req.query.status === "success") { %>
-  <div class="alert alert-success text-center">Form submitted successfully.</div>
+         <% if (status === "success") { %>
+  <div class="alert alert-success text-center">
+    Form submitted successfully.
+  </div>
 <% } %>
 
-<% if (req.query.status === "error") { %>
-  <div class="alert alert-danger text-center">Something went wrong. Please try again.</div>
+<% if (status === "error") { %>
+  <div class="alert alert-danger text-center">
+    Something went wrong. Please try again.
+  </div>
 <% } %>
 
           <form action="/contact" method="POST">

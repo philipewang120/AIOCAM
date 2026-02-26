@@ -24,12 +24,8 @@ app.get("/", (req, res) => {
 app.get("/Aboutus", (req, res) => {
   res.render("Aboutus.ejs")
 })
-app.get("/contact", (req, res) => {
-  const status = req.session?.status || null;
-
-  req.session.status = null; 
-
-  res.render("Contact", { status });
+app.get("/Contact", (req, res) => {
+  res.render("Contact.ejs", { status: req.query.status });
 });
 app.get("/OurApproach", (req, res) => {
   res.render("OurApproach.ejs")
@@ -41,10 +37,7 @@ app.get("/Partnerships", (req, res) => {
   res.render("Partnerships.ejs")
 })
 app.get("/Volunteer", (req, res) => {
-  const status = req.session.status;
-  req.session.status = null; // clear after reading
-
-  res.render("Volunteer.ejs", { status });
+  res.render("Volunteer.ejs", { status: req.query.status });
 });
 app.get("/News", (req, res) => {
   res.render("News.ejs")
