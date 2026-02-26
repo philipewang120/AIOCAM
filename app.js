@@ -29,7 +29,7 @@ app.get("/contact", (req, res) => {
 
   req.session.status = null; 
 
-  res.render("contact", { status });
+  res.render("Contact", { status });
 });
 app.get("/OurApproach", (req, res) => {
   res.render("OurApproach.ejs")
@@ -80,14 +80,14 @@ app.post("/contact", async (req, res) => {
 
     
     req.session.status = "success";
-    res.redirect("/contact");
+    res.redirect("/Contact");
 
   } catch (error) {
     console.error(error);
 
     
     req.session.status = "error";
-    res.redirect("/contact");
+    res.redirect("/Contact");
   }
 });
 
