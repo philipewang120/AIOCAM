@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.body-content {
+  padding-top: 100px; /* adjust based on header height */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+.carousel-img {
+  height: 600px;
+  object-fit: cover;
+}
+.contact-page {
+  min-height: 70vh;
+}

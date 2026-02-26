@@ -1,0 +1,160 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="body-content flex-fill">
+<main class = "flex-fill">
+
+<!-- ================= HOW TO GET INVOLVED ================= -->
+
+<section class="volunteer-hero py-5 text-center">
+  <div class="container">
+    <h1 class="fw-bold mb-5 display-5">HOW TO GET INVOLVED</h1>
+
+    <div class="row justify-content-center g-5">
+
+      <!-- Student -->
+      <div class="col-md-4">
+        <div class="involve-card text-center p-4 shadow">
+          <div class="circle-img mx-auto mb-4">
+            <img src="/assets/images/campusAmbassador.png" class="img-fluid">
+          </div>
+          <h5 class="fw-bold">FOR STUDENTS:</h5>
+          <p>
+            Become a campus ambassador and promote civic responsibility within your institution.
+          </p>
+        </div>
+      </div>
+
+      <!-- Institution -->
+      <div class="col-md-4">
+        <div class="involve-card text-center p-4 shadow">
+          <div class="circle-img mx-auto mb-4">
+            <img src="/assets/images/institution.jpg" class="img-fluid">
+          </div>
+          <h5 class="fw-bold">FOR INSTITUTIONS:</h5>
+          <p>
+            Partner with AIOCAM to integrate structured civic engagement programs into your academic system.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sponsor -->
+      <div class="col-md-4">
+        <div class="involve-card text-center p-4 shadow">
+          <div class="circle-img mx-auto mb-4">
+            <img src="/assets/images/sponsor.jpg" class="img-fluid">
+          </div>
+          <h5 class="fw-bold">FOR SPONSORS & SUPPORTERS:</h5>
+          <p>
+            Support initiatives that promote mindset transformation and sustainable national development.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIGN UP FORM ================= -->
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="card shadow p-5">
+
+      <h2 class="text-center fw-bold mb-4">Sign Up Form</h2>
+
+      <% if (status === "success") { %>
+        <div class="alert alert-success text-center">Form submitted successfully.</div>
+      <% } %>
+
+      <% if (status === "error") { %>
+        <div class="alert alert-danger text-center">Something went wrong. Please try again.</div>
+      <% } %>
+
+      <form action="/volunteer" method="POST">
+
+        <!-- Select Type -->
+        <div class="mb-4">
+          <label class="form-label">Sign up as:</label>
+          <select name="type" id="signupType" class="form-select" required>
+            <option value="">Select option</option>
+            <option value="student">Student Ambassador</option>
+            <option value="institution">Institution</option>
+            <option value="sponsor">Sponsor</option>
+          </select>
+        </div>
+
+        <!-- Dynamic Fields -->
+        <div id="dynamicFields"></div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-4">
+          Submit
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+</main>
+
+</div>
+
+
+
+
+
+<script>
+const typeSelect = document.getElementById("signupType");
+const dynamicFields = document.getElementById("dynamicFields");
+
+typeSelect.addEventListener("change", function() {
+  const value = this.value;
+  let html = "";
+
+  if (value === "student") {
+    html = `
+      <input name="fullName" class="form-control mb-3" placeholder="Full Name" required>
+      <input name="school" class="form-control mb-3" placeholder="Name of School" required>
+      <input type="email" name="email" class="form-control mb-3" placeholder="Email Address" required>
+      <textarea name="message" class="form-control mb-3" placeholder="Why do you want to be an ambassador?" required></textarea>
+    `;
+  }
+
+  if (value === "institution") {
+    html = `
+      <input name="school" class="form-control mb-3" placeholder="Name of School" required>
+      <input name="position" class="form-control mb-3" placeholder="Post of Responsibility" required>
+      <textarea name="message" class="form-control mb-3" placeholder="Message" required></textarea>
+    `;
+  }
+
+  if (value === "sponsor") {
+    html = `
+      <input name="company" class="form-control mb-3" placeholder="Company Name (type 'personal' if individual)" required>
+      <input name="fullName" class="form-control mb-3" placeholder="Full Name" required>
+      <input type="email" name="email" class="form-control mb-3" placeholder="Email Address" required>
+      <input name="phone" class="form-control mb-3" placeholder="Telephone Number" required>
+      <textarea name="message" class="form-control mb-3" placeholder="Message" required></textarea>
+    `;
+  }
+
+  dynamicFields.innerHTML = html;
+});
+</script>
+
+<%- include("partials/footer.ejs") %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,143 @@
+<%- include("partials/header.ejs") %>
+<div class="body-content"> 
+
+    
+<section class="contact-page py-5">
+  <div class="container">
+
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+
+  <h1 class="fw-bold">
+    Cameroon Awareness and Orientation Initiative (AIOCAM)
+  </h1>
+
+  <div class="d-flex justify-content-center gap-5 mt-4 flex-wrap">
+
+    <!-- Email -->
+    <div class="text-center">
+      <img src="/assets/icons/email.png" width="40" height="40" alt="Email Icon">
+      <p class="mt-2 mb-0">info@aiocam.org</p>
+    </div>
+
+    <!-- Phone -->
+    <div class="text-center">
+      <img src="/assets/icons/phone.png" width="40" height="40" alt="Phone Icon">
+      <p class="mt-2 mb-0">+237 694529059</p>
+    </div>
+
+    <!-- Location -->
+    <div class="text-center">
+      <img src="/assets/icons/location.png" width="40" height="40" alt="Location Icon">
+      <p class="mt-2 mb-0">Yaounde, Cameroon</p>
+    </div>
+
+  </div>
+
+</div>
+
+    <div class="row g-5">
+
+      <!-- Contact Form -->
+
+      <div class="col-lg-6">
+        <div class="card shadow-sm p-4">
+          <h4 class="mb-4">Send Us a Message</h4>
+          <% if (status === "success") { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    Message sent successfully.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+<% } %>
+
+<% if (status === "error") { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    Something went wrong. Please try again.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+<% } %>
+          <form action="/contact" method="POST">
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea name="message" rows="5" class="form-control" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map + Social -->
+      <div class="col-lg-6">
+
+        <!-- Google Map (Optional) -->
+        <div class="mb-4">
+          <iframe 
+            src="https://www.google.com/maps?q=Yaounde,Cameroon&output=embed"
+            width="100%" 
+            height="250" 
+            style="border:0;" 
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <!-- Social Media -->
+        <div class="text-center social-icons mt-4">
+          <a href="https://facebook.com/profile.php?id=61583334122074" target="_blank" class="me-3">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://twitter.com/CameroonAw92238" target="_blank" class="me-3">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="https://instagram.com/" target="_blank" class="me-3">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://wa.me/237694529059" target="_blank" class="whatsapp-btn">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("partials/footer.ejs") %>
